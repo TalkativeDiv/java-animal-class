@@ -42,13 +42,13 @@ public class Animal {
     }
     // set
     public void setName(String newName){
-        name = newName;
+        this.name = newName;
     }
     //// RESOLVED: Decide whether this should be mutable, species should (usually) be constant.
     // public void setSpecies(String newSpecies){
     //     species=newSpecies;
     // }
     public void setAge(int newAge){
-        age=newAge;
+        this.age=newAge;
     }
 }
