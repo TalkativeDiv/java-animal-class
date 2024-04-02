@@ -1,11 +1,11 @@
 package org.learning;
 
 public class Animal {
-    String name;
+    private String name;
     // TODO: maybe make this an enum? Not sure yet.
-    String species;
+    private String species;
     // TODO: decide whether we include months as part of an age, if so, this will need to be a double or float, depending on how accurate it should be
-    int age;
+    private int age;
 
     // Regular
     Animal(int startingAge, String birthName, String type) {
@@ -16,9 +16,9 @@ public class Animal {
 
     // Carbon Copy
     Animal(Animal a) {
-        this.name = a.getName();
-        this.age = a.getAge();
-        this.species = a.getSpecies();
+        this.name = a.name;
+        this.age = a.age;
+        this.species = a.species;
     }
     // get
     public String getName() {
@@ -44,10 +44,10 @@ public class Animal {
     public void setName(String newName){
         name = newName;
     }
-    // TODO: Decide whether this should be mutable, species should (usually) be constant.
-    public void setSpecies(String newSpecies){
-        species=newSpecies;
-    }
+    //// RESOLVED: Decide whether this should be mutable, species should (usually) be constant.
+    // public void setSpecies(String newSpecies){
+    //     species=newSpecies;
+    // }
     public void setAge(int newAge){
         age=newAge;
     }

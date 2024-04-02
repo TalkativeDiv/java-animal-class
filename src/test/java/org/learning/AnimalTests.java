@@ -29,12 +29,12 @@ class AnimalTests {
         assertEquals("Max", animal.getName());
     }
 
-    @Test
-    void testSetSpecies() {
-        Animal animal = new Animal(1, "Whiskers", "Cat");
-        animal.setSpecies("Lion");
-        assertEquals("Lion", animal.getSpecies());
-    }
+    // @Test
+    // void testSetSpecies() {
+    //     Animal animal = new Animal(1, "Whiskers", "Cat");
+    //     animal.setSpecies("Lion");
+    //     assertEquals("Lion", animal.getSpecies());
+    // }
 
     @Test
     void testSetAge() {
