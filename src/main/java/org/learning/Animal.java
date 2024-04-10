@@ -2,53 +2,63 @@ package org.learning;
 
 public class Animal {
     private String name;
-    // TODO: maybe make this an enum? Not sure yet.
-    private String species;
-    // TODO: decide whether we include months as part of an age, if so, this will need to be a double or float, depending on how accurate it should be
+    private AnimalSpecies species;
     private int age;
+    private static int nextId = 1;
+    private int id;
 
-    // Regular
-    Animal(int startingAge, String birthName, String type) {
+    // Regular constructor
+    public Animal(int startingAge, String birthName, AnimalSpecies type) {
+        this.id = nextId++;
         this.name = birthName;
         this.age = startingAge;
         this.species = type;
     }
 
-    // Carbon Copy
-    Animal(Animal a) {
-        this.name = a.name;
-        this.age = a.age;
-        this.species = a.species;
+    // Copy constructor
+    public Animal(Animal a) {
+        this(a.age, a.name, a.species);
     }
-    // get
+
     public String getName() {
         return this.name;
     }
 
-    public String getSpecies(){
+    public AnimalSpecies getSpecies() {
         return this.species;
     }
 
-    public int getAge(){
+    public int getAge() {
         return this.age;
     }
 
-    public Boolean equals(Animal a){
-        return (a.getAge() == this.getAge()) && (a.getSpecies().equals(this.getSpecies()));
+    public int getId() {
+        return id;
     }
-    // TODO: Remove debug function in prod
-    public String toString(){
-        return "name: " + getName() + "age: " + getAge() + "species:" + getSpecies();
-    }
-    // set
-    public void setName(String newName){
+
+    public void setName(String newName) {
         this.name = newName;
     }
-    //// RESOLVED: Decide whether this should be mutable, species should (usually) be constant.
-    // public void setSpecies(String newSpecies){
-    //     species=newSpecies;
-    // }
-    public void setAge(int newAge){
-        this.age=newAge;
+
+
+    public void setAge(int newAge) {
+        this.age = newAge;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Animal other = (Animal) obj;
+        return this.age == other.age && this.species == other.species;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal [id=" + id + ", name=" + name + ", species=" + species + ", age=" + age + "]";
     }
 }
